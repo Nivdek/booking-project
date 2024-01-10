@@ -29,12 +29,12 @@ class Booking(models.Model):
     phone = models.IntegerField()
     date = models.DateTimeField()
     no_of_guests = models.IntegerField(default=1)
-    additional_notes = models.TextField()
+    additional_notes = models.TextField(blank=True)
     approved = models.BooleanField(default=False)
     booked_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ["restaurant", "-booked_on"]
+        ordering = ["-restaurant", "-booked_on"]
 
     def __str__(self):
         return f"Booking for {self.no_of_guests} at {self.restaurant}"
