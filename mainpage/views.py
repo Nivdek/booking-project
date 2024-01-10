@@ -1,6 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views import generic
+from .models import Restaurant, Booking
 
 # Create your views here.
-def testmessage(request):
-    return HttpResponse("WE ARE LIVE")
+class RestaurantList(generic.ListView):
+    queryset = Restaurant.objects.filter(status=1).order_by("city")
+    template_name = "mainpage/index.html"
+    paginate_by = 10
