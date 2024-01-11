@@ -6,4 +6,4 @@ from .models import Restaurant, Booking
 class RestaurantList(generic.ListView):
     queryset = Restaurant.objects.filter(status=1).order_by("city")
     template_name = "mainpage/index.html"
-    paginate_by = 10
+    paginate_by = 6
