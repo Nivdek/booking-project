@@ -9,7 +9,8 @@ class Restaurant(models.Model):
     name = models.CharField(max_length=50)
     slug = models.SlugField(max_length=100, unique=True, null=True)
     food_type = models.CharField(max_length=20)
-    city = models.CharField(max_length=25)
+    city = models.CharField(max_length=50)
+    address = models.CharField(max_length=50, default='')
     about = models.TextField()
     featured_image = CloudinaryField('image', default='placeholder')
     
@@ -36,6 +37,8 @@ class Booking(models.Model):
     date = models.DateTimeField()
     no_of_guests = models.IntegerField(default=1)
     additional_notes = models.TextField(blank=True)
+    
+    # These attributes are for data handling and administrative operations
     approved = models.BooleanField(default=False)
     booked_on = models.DateTimeField(auto_now_add=True)
 

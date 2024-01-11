@@ -8,7 +8,7 @@ class RestaurantAdmin(SummernoteModelAdmin):
     list_display = ('name', 'slug', 'status')
     search_fields = ['name']
     list_filter = ('status',)
-    prepopulated_fields = {'slug': ('name',)}
+    prepopulated_fields = {'slug': ('name', 'address',)}
     summernote_fields = ('about',)
 
 # Register your models here.
