@@ -37,7 +37,7 @@ class Booking(models.Model):
     date = models.DateTimeField()
     no_of_guests = models.IntegerField(default=1)
     additional_notes = models.TextField(blank=True)
-    
+
     # These attributes are for data handling and administrative operations
     approved = models.BooleanField(default=False)
     booked_on = models.DateTimeField(auto_now_add=True)

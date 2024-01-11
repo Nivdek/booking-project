@@ -5,8 +5,8 @@ from django_summernote.admin import SummernoteModelAdmin
 @admin.register(Restaurant)
 class RestaurantAdmin(SummernoteModelAdmin):
 
-    list_display = ('name', 'slug', 'status')
-    search_fields = ['name']
+    list_display = ('name', 'slug', 'author', 'status')
+    search_fields = ['name', 'author__username']
     list_filter = ('status',)
     prepopulated_fields = {'slug': ('name', 'address',)}
     summernote_fields = ('about',)

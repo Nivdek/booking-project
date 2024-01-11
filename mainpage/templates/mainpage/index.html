@@ -22,7 +22,7 @@
                                     <p class="author">{{ restaurant.food_type }}</p>
                                 </div>
                             </div>
-                            <a href="" class="post-link">
+                            <a href="{% url 'restaurant_detail' restaurant.slug %}" class="post-link">
                                 <h2 class="card-title">{{ restaurant.name }}</h2>
                                 <p class="card-text">{{ restaurant.address }}</p>
                             </a>
