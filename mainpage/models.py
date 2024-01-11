@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Pending"), (1, "Published"))
 
@@ -7,8 +8,9 @@ STATUS = ((0, "Pending"), (1, "Published"))
 class Restaurant(models.Model):
     name = models.CharField(max_length=50)
     food_type = models.CharField(max_length=20)
-    about = models.TextField()
     city = models.CharField(max_length=25)
+    about = models.TextField()
+    featured_image = CloudinaryField('image', default='placeholder')
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="restaurant_posts"
     )
